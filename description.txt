@@ -1,0 +1,17 @@
+The project consists of several modules:
+
+1) Initializer (main) sets data and starts all necessary processes;
+
+2) Parser - reads and parses data from file.
+
+3) Address book – all city and country processes register in the address book when created; then all cities send queries to address book process asking for neighbours' PID. Handles all broadcast messages.
+
+4) Countries – When created, it creates its own cities. Then country process handles messages from all its cities on every turn to know whether it's already complete or not. 
+
+5) Cities – each city process sends necessary amounts of coins to all neighbouring cities, checks if it is complete and sends its state to its country process.
+
+6) Control center – handles turns; after the beginning of a new turn sends messages to all cities; waits for everyone to send "turn done" messages; after that sends "new turn" message again. When all countries report completeness, broadcasts terminating message.
+
+
+
+To see the flowchart describing all main actions and message exchange, see flowchart.pdf
